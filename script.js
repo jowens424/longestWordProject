@@ -33,7 +33,7 @@ function longestWord(text) {
 $(function() {
   module("Longest Word");
   test("longestWord()", t => {
-    t.equal(longestWord('wind and willows'), "willows", "longest word test");
+    t.equal(longestWord('wind and willows'), "willows", "longest word testert");
   });
 
     test("longestWordLength()", t => {
