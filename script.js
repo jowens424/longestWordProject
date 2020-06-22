@@ -41,7 +41,7 @@ $(function() {
   });
   
       test("longestWordLength()", t => {
-    t.equal(longestWordLength('Paul Simon'), 5 , " length test");
+    t.equal(longestWordLength('Paul Art Simon'), 5 , " length test");
   });
   
 
