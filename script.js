@@ -48,5 +48,5 @@ $(function() {
   QUnit.done = function(stats) {
     console.log('QUnit Done: ' + stats.total + ' tests run, ' + stats.passed + ' tests passed, ' + stats.failed + ' tests failed');
   };
-}); // ready
+}); // ready for the test
 
