@@ -1,17 +1,14 @@
-function shortestWord(text, bool) {
+function shortestWord(text) {
   let wordArray = text.split(' ')
   let result = ''
   let maxLength = 0
   for (let i = 0; i < wordArray.length; i++) {
     if (wordArray[i].length < maxLength || maxLength === 0) {
       maxLength = wordArray[i].length
-      result = wordArray[i];
+      result = [wordArray[i], maxLength];
     }
   }
-
-  if(bool){
-   result = result.length
-  }
+  
   return result;
 }
 
@@ -19,21 +16,17 @@ function shortestWord(text, bool) {
 $(function() {
   module("Shortest Word");
   test("shortestWord()", t => {
-    t.equal(shortestWord('wind and willows', false), "and", "wind and willow test");
+    t.deepEqual(shortestWord('wind and willows'), ["and", 3], "wind and willow test");
   });
   
     test("shortestWord()", t => {
-    t.equal(shortestWord('cats in the cradle', false), "in", "cats in the cradle test");
+    t.deepEqual(shortestWord('cats in the cradle'), ["in", 2], "cats in the cradle test");
   });
 
   test("shortestWordLength()", t => {
-    t.equal(shortestWord('example two', true), 3, " length test");
+    t.deepEqual(shortestWord('pied piper at the gate'), ["at", 2], "pied piper test");
   });
   
-   test("shortestWordLength()", t => {
-    t.equal(shortestWord('Paul Simon', true), 4, " length test");
-  });
-
 
   QUnit.done = function(stats) {
     console.log('QUnit Done: ' + stats.total + ' tests run, ' + stats.passed + ' tests passed, ' + stats.failed + ' tests failed');

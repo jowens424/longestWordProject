@@ -6,7 +6,7 @@ function longestWord(text) {
   for (let i = 0; i < wordArray.length; i++) {
     if (wordArray[i].length > maxLength) {
       maxLength = wordArray[i].length
-      result = wordArray[i]
+      result = [wordArray[i], maxLength]
     }
   }
 
@@ -14,39 +14,23 @@ function longestWord(text) {
 }
 
 
-function longestWordLength(str) {
-   var words = str.split(' ');
-   var longest = 0;
-   for (var i=0;i<words.length;i++) {
-        if (words[i].length > longest) {
-             longest = words[i].length;
-        }  
-   }
-   return longest;
-}
-
-
 
 $(function() {
   module("Longest Word");
   test("longestWord()", t => {
-    t.equal(longestWord('wind and willows'), "willows", "wind and willow test");
-  });
-  
-    test("longestWord()", t => {
-    t.equal(longestWord('cats in the cradle'), "cradle", "cats in the cradle test");
+    t.deepEqual(longestWord('wind and willows'), ["willows", 7], "wind and willow test");
   });
 
-  test("longestWordLength()", t => {
-    t.equal(longestWordLength('example two'), 7, " length test");
+test("longestWord()", t => {
+    t.deepEqual(longestWord('cats in the cradle'), ["cradle", 6], "cats in the cradle test");
   });
   
-   test("longestWordLength()", t => {
-    t.equal(longestWordLength('Paul Simon'), 5, " length test");
+ test("longestWord()", t => {
+    t.deepEqual(longestWord('pied piper at the gate'), ["piper", 5], "pied piper test");
   });
 
 
   QUnit.done = function(stats) {
     console.log('QUnit Done: ' + stats.total + ' tests run, ' + stats.passed + ' tests passed, ' + stats.failed + ' tests failed');
   };
-}); // ready test
+}); // ready
